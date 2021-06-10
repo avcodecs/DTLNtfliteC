@@ -1,0 +1,37 @@
+rm -rf lib
+mkdir lib
+
+gcc \
+src/dios_ssp_aec/dios_ssp_aec_tde/*.c \
+	src/dios_ssp_aec/*.c \
+	src/dios_ssp_agc/dios_ssp_agc_api.c \
+	src/dios_ssp_doa/dios_ssp_doa_api.c \
+	src/dios_ssp_doa/dios_ssp_doa_win.c \
+	src/dios_ssp_gsc/*.c \
+	src/dios_ssp_hpf/dios_ssp_hpf_api.c \
+	src/dios_ssp_mvdr/*.c \
+	src/dios_ssp_ns/*.c \
+	src/dios_ssp_dtln/*.c \
+	src/dios_ssp_share/*.c \
+	src/dios_ssp_vad/*.c \
+	src/dios_ssp_api.c \
+	-Iinc \
+	-Iinc/dios_ssp_aec/dios_ssp_aec_tde \
+	-Iinc/dios_ssp_aec \
+	-Iinc/dios_ssp_agc \
+	-Iinc/dios_ssp_doa \
+	-Iinc/dios_ssp_gsc \
+	-Iinc/dios_ssp_hpf \
+	-Iinc/dios_ssp_mvdr \
+	-Iinc/dios_ssp_ns \
+	-Iinc/dios_ssp_dtln \
+	-Iinc/dios_ssp_share \
+	-Iinc/dios_ssp_vad \
+	-Isrc \
+	-Ithirdpart/include \
+	-Lthirdpart/lib \
+	-fPIC \
+ 	-shared \
+	-O3 \
+	-ltensorflow-lite \
+	-o lib/libathena.so
